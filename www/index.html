@@ -1,30 +1,33 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/controllers.js"></script>
-  </head>
-
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
-  </body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Curates</title>
+  <link href="http://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/styles/standardize.css">
+  <link rel="stylesheet" href="assets/styles/linkview-grid.css">
+  <link rel="stylesheet" href="assets/styles/styles.css">
+<body ng-app="curates" class="body index clearfix">
+  <!-- <script src="../node_modules/underscore/underscore.js"></script> -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="modules/myCollections/myCollections.js"></script>
+  <script src="modules/singleCollection/singleCollection.js"></script>
+  <script src="modules/collectionsList/collectionsList.js"></script>
+  <script src="modules/editCollection/editCollection.js"></script>
+  <script src="app.js"></script>
+  <script src="services/userManagement.js"></script>
+  <script src="directives/userManagement.js"></script>
+  <script src="services/collectionFactory.js"></script>
+  <script src="directives/collectionMeta.js"></script>
+  <script src="modules/createCollection/createCollection.js"></script>
+  <nav class="navbar"></nav>
+  <p class="logotext logotext-1"><a ng-href='/'><span>Curates</span></a></p>
+  <div class="signin clearfix" ng-controller="userMangamentController">
+    <user-management />
+  </div>
+<!--   <div ng-controller="userMangamentController">
+    <user-management />
+  </div> -->
+  <div ui-view></div>
+</body>
 </html>
