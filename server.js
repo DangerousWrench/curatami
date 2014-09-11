@@ -1,5 +1,6 @@
 var mongo = require('./mongo');
 var express = require('express');
+var cors = require('cors'); // added to resolve CORS issue
 var session = require('express-session');
 var url = require('url');
 var bodyParser = require('body-parser');
@@ -9,6 +10,7 @@ var GoogleStrategy = require('passport-google').Strategy;
 var port = process.env.PORT || 3000;
 
 app = express();
+app.use(cors());
 
 //middleware
 app.use(bodyParser.json());
