@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 //serve static files in client when referred to in html
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/www'));
 
 //configure passport-google authentication
 passport.use(new GoogleStrategy({
@@ -124,6 +124,7 @@ app.get('/api/all', function(req, res) {
 
 // route all other requests to the main page
 app.use(function(req, res) {
+  // res.set('Content-Type', 'text/javascript');
   res.sendFile(__dirname + '/www/index.html');
 });
 
