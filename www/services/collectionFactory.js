@@ -1,12 +1,12 @@
 angular.module('curates.collectionFactory', [])
 .factory('collectionFactory', function($http){
 
-  var serverUrl = 'http://localhost:3000';
+  var server = 'http://localhost:3000';
 
   var getCollection = function(url) {
     return $http({
       method: 'GET',
-      url: serverUrl + '/api/collection/' + url
+      url: server + '/api/collection/' + url
     }).then(function(response) {
       if (response.data === 'null') {
         return null;
@@ -18,16 +18,16 @@ angular.module('curates.collectionFactory', [])
   var getListData = function() {
     return $http({
       method: 'GET',
-      url: serverUrl + '/api/all'
+      url: server + '/api/all'
     }).then(function(response) {
       return response.data;
     });
   };
 
-  var getUserCollections = function(user) {
+  var getUserCollections = function() {
     return $http({
       method: 'GET',
-      url: serverUrl + '/api/user/' + user.provider + '/' + user.id
+      url: server + '/api/user/'
     }).then(function(response) {
       return response.data;
     });
@@ -36,7 +36,7 @@ angular.module('curates.collectionFactory', [])
   var updateCollection = function(collection) {
     return $http({
       method: 'POST',
-      url: serverUrl + '/api/collection/update',
+      url: server + '/api/collection/update',
       data: collection
     }).then(function(response) {
       return response.data;
@@ -46,7 +46,7 @@ angular.module('curates.collectionFactory', [])
   var createCollection = function(collection) {
     return $http({
       method: 'POST',
-      url: serverUrl + '/api/collection/create',
+      url: server + '/api/collection/create',
       data: collection
     }).then(function(response) {
       return response.data;
@@ -56,7 +56,7 @@ angular.module('curates.collectionFactory', [])
   var addStar = function(data) {
     return $http({
       method: 'POST',
-      url: serverUrl + '/api/collection/addStar',
+      url: server + '/api/collection/addStar',
       data: data
     }).then(function(response) {
       return response.data;
